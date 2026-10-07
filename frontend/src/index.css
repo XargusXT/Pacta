@@ -1,0 +1,45 @@
+:root{
+  --accent:#BD2020;
+  --primary-color:#000000de;
+  --secundary-color:#8c8c8c;
+  --secundary-background:#4f4c4c30;
+  --background:#FFFFFF;
+  
+  --primary-size:30px;
+  --second-size:14px;
+  --text-size:16px;
+
+  /* font family */
+  --principal-font:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --secundary-font:Georgia, 'Times New Roman', Times, serif;
+
+  --subtitle-shadow:4px 4px 4px rgba(0, 0, 0, 0.479);
+}
+
+*{
+  padding: 0;
+  margin: 0;
+}
+
+h2{
+  font-family: var(--principal-font);
+  font-weight: 700;
+  text-shadow:var(--subtitle-shadow);
+  font-size: var(--primary-size);
+  margin: 30px 0;
+}
+
+li,a,p,cite{
+  font-family: var(--secundary-font);
+  font-weight: 600;
+  text-shadow: var(--subtitle-shadow);
+  font-size: var(--second-size);
+}
+
+cite{
+  color: var(--secundary-color);
+}
+
+li{
+  list-style-type: none;
+}

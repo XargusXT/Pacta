@@ -1,0 +1,420 @@
+.Login {
+    position: fixed;
+
+    inset: 0;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    background: var(--secundary-background);
+
+    overflow: hidden;
+}
+
+/* =========================
+   PANEL IZQUIERDO
+========================= */
+
+.izquierdo {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    padding: 55px;
+
+    box-sizing: border-box;
+
+    background: var(--primary-color);
+
+    color: white;
+
+    overflow: hidden;
+}
+
+/* Decoración */
+
+.izquierdo::before {
+    content: '';
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    right: -180px;
+    top: -180px;
+
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.izquierdo::after {
+    content: '';
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    left: -150px;
+    bottom: -120px;
+
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* =========================
+   BIENVENIDA
+========================= */
+
+.welcome-content {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 470px;
+
+    margin: auto 0;
+}
+
+.logo-container {
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 28px;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.1);
+
+    backdrop-filter: blur(8px);
+}
+
+.logo-modo {
+    width: 55px;
+    height: 55px;
+
+    object-fit: contain;
+}
+
+.welcome-content h1 {
+    margin: 0 0 15px;
+
+    font-size: 45px;
+
+    line-height: 1.1;
+
+    font-weight: 700;
+}
+
+.welcome-content p {
+    max-width: 390px;
+
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+/* =========================
+   FOOTER IZQUIERDO
+========================= */
+
+.bottom-div {
+    position: relative;
+
+    z-index: 2;
+}
+
+.bottom-div h3 {
+    margin: 0 0 7px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+.bottom-div p {
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.45);
+
+    font-size: 11px;
+}
+
+/* =========================
+   PANEL DERECHO
+========================= */
+
+.derecho {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+
+    box-sizing: border-box;
+
+    background: var(--background);
+}
+
+/* =========================
+   FORMULARIO
+========================= */
+
+.formulario {
+    width: 100%;
+
+    max-width: 390px;
+}
+
+.form-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 22px;
+
+    border-radius: 13px;
+
+    background: var(--secundary-background);
+
+    color: var(--primary-color);
+}
+
+.form-icon svg {
+    font-size: 24px;
+}
+
+.formulario h2 {
+    margin: 0;
+
+    color: var(--primary-color);
+
+    font-size: 27px;
+
+    font-weight: 700;
+}
+
+.form-description {
+    margin: 8px 0 30px;
+
+    color: #999;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+.input-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    color: var(--primary-color);
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+.input-dato {
+    width: 100%;
+
+    height: 45px;
+
+    box-sizing: border-box;
+
+    padding: 0 14px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: var(--background);
+
+    color: var(--primary-color);
+
+    font-size: 13px;
+
+    transition: all 0.3s ease;
+}
+
+.input-dato::placeholder {
+    color: #aaa;
+}
+
+.input-dato:hover {
+    border-color: #bbb;
+}
+
+.input-dato:focus {
+    border-color: var(--primary-color);
+
+    box-shadow:
+        0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+/* =========================
+   BOTÓN
+========================= */
+
+.positive-button {
+    width: 100%;
+
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 8px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: var(--primary-color);
+
+    color: var(--background);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow: var(--subtitle-shadow);
+
+    transition: all 0.3s ease;
+}
+
+.positive-button svg {
+    font-size: 18px;
+}
+
+.positive-button:hover {
+    transform: translateY(-2px);
+
+    opacity: 0.92;
+}
+
+.positive-button:active {
+    transform: translateY(0);
+}
+
+/* =========================
+   VOLVER
+========================= */
+
+.Link-modo {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    margin-top: 15px;
+
+    padding: 11px;
+
+    border: 1px solid #e5e5e5;
+
+    border-radius: 10px;
+
+    background: transparent;
+
+    color: #777;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    transition: all 0.3s ease;
+}
+
+.Link-modo svg {
+    font-size: 17px;
+}
+
+.Link-modo:hover {
+    border-color: var(--primary-color);
+
+    color: var(--primary-color);
+
+    background: var(--secundary-background);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+
+    .Login {
+        grid-template-columns: 1fr;
+    }
+
+    .izquierdo {
+        display: none;
+    }
+
+    .derecho {
+        padding: 25px;
+    }
+
+    .formulario {
+        max-width: 430px;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .derecho {
+        padding: 20px;
+    }
+
+    .formulario h2 {
+        font-size: 23px;
+    }
+}

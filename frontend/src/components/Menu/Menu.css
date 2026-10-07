@@ -1,0 +1,279 @@
+.menu {
+    position: fixed;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 14%;
+
+    min-width: 190px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 25px 15px;
+
+    background: var(--background);
+
+    border-right: 1px solid rgba(0, 0, 0, 0.06);
+
+    z-index: 10;
+}
+
+/* =========================
+   BRAND
+========================= */
+
+.menu-brand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 5px 8px 25px;
+}
+
+.brand-logo {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: var(--primary-color);
+
+    color: white;
+
+    font-weight: 700;
+
+    font-size: 18px;
+}
+
+.menu-brand h2 {
+    margin: 0;
+
+    color: var(--primary-color);
+
+    font-size: 19px;
+
+    letter-spacing: 1px;
+}
+
+.menu-brand span {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #999;
+
+    font-size: 9px;
+}
+
+/* =========================
+   LABEL
+========================= */
+
+.menu-label {
+    margin: 10px 8px;
+
+    color: #aaa;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+/* =========================
+   MENU
+========================= */
+
+.lista-menu {
+    list-style: none;
+
+    padding: 0;
+    margin: 0;
+}
+
+.elemento-lista-menu {
+    margin: 5px 0;
+}
+
+.link-menu {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 11px 12px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    color: #777;
+
+    font-size: 13px;
+
+    transition: all 0.3s ease;
+}
+
+.menu-item-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-item-icon svg {
+    font-size: 20px;
+}
+
+.link-menu:hover {
+    color: var(--primary-color);
+
+    background: var(--secundary-background);
+
+    transform: translateX(2px);
+}
+
+/* ITEM ACTIVO */
+
+.elemento-lista-menu.activo .link-menu {
+    background: var(--primary-color);
+
+    color: white;
+
+    box-shadow: var(--subtitle-shadow);
+}
+
+/* =========================
+   BOTTOM
+========================= */
+
+.bottom-div-menu {
+    margin-top: auto;
+}
+
+.settings-link {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 11px 12px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    color: #777;
+
+    font-size: 13px;
+
+    transition: all 0.3s ease;
+}
+
+.settings-link:hover {
+    color: var(--primary-color);
+
+    background: var(--secundary-background);
+}
+
+.settings-link.activo {
+    background: var(--secundary-background);
+
+    color: var(--primary-color);
+}
+
+.settings-link svg {
+    font-size: 20px;
+}
+
+.menu-divider {
+    width: 100%;
+
+    height: 1px;
+
+    margin: 18px 0;
+
+    background: #eee;
+}
+
+.bottom-div-menu cite {
+    display: block;
+
+    color: #aaa;
+
+    font-size: 9px;
+
+    line-height: 1.6;
+
+    font-style: normal;
+
+    text-align: center;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+    .menu {
+        width: 18%;
+        min-width: 170px;
+    }
+}
+
+@media (max-width: 750px) {
+
+    .menu {
+        width: 65px;
+        min-width: 65px;
+
+        padding: 15px 8px;
+    }
+
+    .menu-brand {
+        justify-content: center;
+
+        padding-bottom: 20px;
+    }
+
+    .menu-brand > div:last-child,
+    .menu-label,
+    .link-menu span:last-child,
+    .settings-link span,
+    .bottom-div-menu cite {
+        display: none;
+    }
+
+    .link-menu,
+    .settings-link {
+        justify-content: center;
+
+        padding: 12px 5px;
+    }
+
+    .menu-item-icon svg,
+    .settings-link svg {
+        font-size: 22px;
+    }
+
+    .dashboard {
+        left: 65px;
+    }
+}
