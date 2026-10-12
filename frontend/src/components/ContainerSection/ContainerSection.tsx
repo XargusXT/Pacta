@@ -218,7 +218,7 @@ export default function ContainerSection() {
 
                         <Link
                             className="Link-modo-visible"
-                            to="/Registros"
+                            to="/Visualizacion"
                         >
                             Ver Contratos
                             <ArrowForwardIcon />

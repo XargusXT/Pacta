@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import '../styles/ModoEditable.css';
+import axios from 'axios'
 
-import { Link } from 'react-router-dom';
+import { Link,useNavigate} from 'react-router-dom';
 
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -9,21 +10,41 @@ import LoginIcon from '@mui/icons-material/Login';
 
 import logo from '../assets/image.png';
 
+interface Response{
+    message:boolean
+}
+
+interface User{
+    usuario:String,
+    clave:String
+}
+
 export default function ModoEditable() {
+    const navigate=useNavigate();
 
     const [usuario, setUsuario] = useState('');
     const [clave, setClave] = useState('');
+    const [message,setMessage]=useState<String>('')
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-
-        // Aquí posteriormente conectaremos
-        // la autenticación con el backend.
-        console.log({
-            usuario,
-            clave,
-        });
-    };
+    const login= async (e) => {
+        e.preventDefault();
+        const user:User={
+            usuario:usuario,
+            clave:clave
+        }
+        try{
+            const response =await axios.post<Response>('/api/auth/login',user)
+            const data=await response.data
+            console.log(data.message)
+            if(data.message==true){
+                navigate('/Registros')
+            }else{
+                setMessage('Credenciales incorrectas')
+            }
+        }catch(error){
+                setMessage(`Error`)
+        }
+    }
 
     return (
         <main className="Login">
@@ -69,7 +90,7 @@ export default function ModoEditable() {
                 <div className="formulario">
 
                     <div className="form-icon">
-                        <LockOutlinedIcon />
+                        <LockOutlinedIcon />{message}
                     </div>
 
                     <h2>Acceso al modo editable</h2>
@@ -79,7 +100,7 @@ export default function ModoEditable() {
                         continuar.
                     </p>
 
-                    <form onSubmit={handleSubmit}>
+                    <form>
 
                         <div className="input-group">
 
@@ -121,16 +142,17 @@ export default function ModoEditable() {
 
                         </div>
 
-                        <button
+                        
+
+                    </form>
+
+                    <button
                             className="positive-button"
-                            type="submit"
+                            onClick={login}
                         >
                             <LoginIcon />
                             Registrarte
                         </button>
-
-                    </form>
-
                     <Link
                         className="Link-modo"
                         to="/"

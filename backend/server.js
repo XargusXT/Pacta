@@ -32,17 +32,9 @@ app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
 // Importar rutas
 const authRoutes = require('./src/routes/authRoutes');
-const adminRoutes = require('./src/routes/adminRoutes');
-const seccionesRoutes = require('./src/routes/seccionesRoutes');
-const papeleraRoutes = require('./src/routes/papeleraRoutes');
-const representanteRoutes = require('./src/routes/representanteRoutes');
 
 // Registrar rutas
-app.use('/api/login', authRoutes);
-app.use('/api/admin', adminRoutes);
-app.use('/api/secciones', seccionesRoutes);
-app.use('/api/papelera', papeleraRoutes);
-app.use('/api/documentos', representanteRoutes);
+app.use('/api/auth', authRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {

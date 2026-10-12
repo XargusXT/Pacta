@@ -3,6 +3,7 @@ import {Routes,Route} from 'react-router-dom'
 import PrincipalPage from './pages/PrincipalPage'
 import ModoEditable from './pages/ModoEditable'
 import Registros from './pages/Registros'
+import Visualizacion from './pages/Visualizacion'
 
 function App() {
 
@@ -35,6 +36,7 @@ export function useAppContext(): AppContextType {
         <Route path="/" element={<PrincipalPage/>}></Route>
         <Route path="/ModoEditor" element={<ModoEditable/>}></Route>
         <Route path="/Registros" element={<Registros/>}></Route>
+        <Route path="/Visualizacion" element={<Visualizacion/>}></Route>
      </Routes>
     </div>
   )

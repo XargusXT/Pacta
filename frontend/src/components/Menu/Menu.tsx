@@ -29,7 +29,7 @@ export default function Menu() {
         {
             id: 2,
             elementolista: 'Registros',
-            path: '/Registros',
+            path: '/Visualizacion',
             icon: <DescriptionIcon />,
         },
         {

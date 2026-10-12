@@ -10,10 +10,11 @@
     display: grid;
     justify-content: center;
     background: var(--background);
-    margin: 10% 35%;
+    margin: 5% 20%;
     padding: 20px;
     border-radius: 10px;
     box-shadow: var(--subtitle-shadow);
+    
 }
 
 .header-modal{
@@ -22,13 +23,41 @@
 }
 
 .boton-cerrar{
-    width: 20px;
-    height: 20px;
-    margin-top:10%;
+    width: 40px;
+    height: 40px;
+    margin-top:5%;
+    padding: 5px;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    transition: all 0.5s ease;
+
+}
+
+.boton-cerrar:hover{
+    background: rgb(196, 194, 194);
+    transform: trans;
+}
+
+.flex-components{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.modal section{
+    border: 1px solid rgb(169, 169, 169);
+    padding:10px 5px;
+    border-radius: 10px;
+    display: grid;
+    width: 320px;
+    justify-content: center;
 }
 
 @media (max-width:1000px) {
     .modal{
-        margin: 15% 25%;
+        margin: 5% 15%;
+        overflow-y: scroll;
     }
 }

@@ -11,6 +11,25 @@ interface Empresa{
     nombre:string
 }
 
+// tipo
+// nombre de la empresa
+// direccion
+// codigo REUP
+// monto
+// nit
+
+// fecha de firma
+// fecha de vigencia
+
+
+// contrato tiene:
+
+// suplementos
+// id
+
+// firmador del contrato
+// ficha de cliente:carnet de identidad y nombre de la persona
+
 export default function ModalAgregarContrato({cerrar}:Prop) {
     const lista_Empresas:Empresa[]=[
         {id:1,nombre:'Alimatic'},
@@ -34,28 +53,53 @@ export default function ModalAgregarContrato({cerrar}:Prop) {
                 X
             </button>
             </div>
-            <label>Tipo de contrato:</label>
-            <select>
-                <option value=''>Como cliente</option>
-                <option value=''>Como proveedor</option>
-            </select>
-            <label>Empresa relacionada:</label>
-            <select>
-                {lista_Empresas.map((empresa)=>(
-                    <option
-                    key={empresa.id}
-                    value={empresa.nombre}
-                    >{empresa.nombre}</option>
-                ))}
-            </select>
-            <div>
-                <label>Fecha de Inicio</label><input type='date'/><br/>
-                <label>Fecha de Vigencia</label><input type='date'/><br/>
+
+            <div className='flex-components'>
+                <section>
+                    <label>Tipo de contrato:</label>
+                    <select>
+                        <option value=''>Como cliente</option>
+                        <option value=''>Como proveedor</option>
+                    </select>
+                    <br />
+                    <label>Empresa relacionada:</label>
+                    <select>
+                            {lista_Empresas.map((empresa)=>(
+                                <option
+                                key={empresa.id}
+                                value={empresa.nombre}
+                            >{empresa.nombre}</option>
+                        ))}
+                    </select>
+                    <br/>
+                    <label>Direccion:</label>
+                    <input type="text" />
+                    <br />
+                    <label>Codigo REUP:</label>
+                    <input type="text" />
+                    <br />
+                    <label>NIT:</label>
+                    <input type="text" />
+                    <br />
+                    <label>Monto:</label>
+                    <input type="number" />
+                    <br />
+
+                </section>
+            
+            <section>
+                    <label>Fecha de Inicio</label><input type='date'/><br/>
+                    <label>Fecha de Vigencia</label><input type='date'/><br/>
+                    <label>Firmador del contrato:</label>
+                    <input></input>
+                    <label htmlFor=""><strong>Ficha de cliente</strong></label>
+                    <label>Nombre:</label>
+                    <input></input><br />
+                    <label>Carnet de identidad:</label>
+                    <input></input><br />
+            </section> 
             </div>
-            <label>Nombre de responsable de contrato:</label>
-            <input></input>
-            <label>Cargo del responsable de contrato:</label>
-            <input></input>
+            
             <button>Crear Contrato</button>
             <button onClick={()=>{
                 cerrar(false)
