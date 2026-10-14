@@ -11,7 +11,8 @@ import LoginIcon from '@mui/icons-material/Login';
 import logo from '../assets/image.png';
 
 interface Response{
-    message:boolean
+    success:boolean
+    message:string
 }
 
 interface User{
@@ -28,18 +29,19 @@ export default function ModoEditable() {
 
     const login= async (e) => {
         e.preventDefault();
+
         const user:User={
             usuario:usuario,
             clave:clave
         }
+
         try{
-            const response =await axios.post<Response>('/api/auth/login',user)
+            const response =await axios.post<Response>('/api/auth/loginJuridico',user)
             const data=await response.data
-            console.log(data.message)
-            if(data.message==true){
+            if(data.success==true){
                 navigate('/Registros')
             }else{
-                setMessage('Credenciales incorrectas')
+                setMessage(`Error:${data.message}`)
             }
         }catch(error){
                 setMessage(`Error`)

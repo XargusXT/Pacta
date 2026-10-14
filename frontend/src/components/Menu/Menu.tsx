@@ -107,7 +107,7 @@ export default function Menu() {
                             ? 'settings-link activo'
                             : 'settings-link'
                     }
-                    to="/Settings"
+                    to="/ModoSettings"
                 >
                     <SettingsIcon />
                     <span>Configuración</span>

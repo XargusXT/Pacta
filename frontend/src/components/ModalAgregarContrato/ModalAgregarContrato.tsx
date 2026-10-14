@@ -56,13 +56,14 @@ export default function ModalAgregarContrato({cerrar}:Prop) {
 
             <div className='flex-components'>
                 <section>
-                    <label>Tipo de contrato:</label>
+                    <label>Denominacion:</label>
+                    
                     <select>
-                        <option value=''>Como cliente</option>
-                        <option value=''>Como proveedor</option>
+                        <option value='cliente'>Cliente</option>
+                        <option value='proveedor'>Proveedor</option>
                     </select>
                     <br />
-                    <label>Empresa relacionada:</label>
+                    <label>Entidad:</label>
                     <select>
                             {lista_Empresas.map((empresa)=>(
                                 <option
@@ -72,31 +73,34 @@ export default function ModalAgregarContrato({cerrar}:Prop) {
                         ))}
                     </select>
                     <br/>
-                    <label>Direccion:</label>
+                    <label>tipo de contrato:</label>
+                    <select name="" id="">
+
+                    </select>
+                    <br />
+                    <label>No. de control del archivo:</label>
                     <input type="text" />
                     <br />
-                    <label>Codigo REUP:</label>
+                    <label>N. contrato:</label>
                     <input type="text" />
                     <br />
-                    <label>NIT:</label>
-                    <input type="text" />
-                    <br />
-                    <label>Monto:</label>
-                    <input type="number" />
-                    <br />
+                
 
                 </section>
             
             <section>
+                <label>Monto:</label>
+                <input type="number" /><br />
+                <div className='div-check'>
+                    <label>Tipo de valor:</label><br />
+                    <input type="checkbox" name="" id="" />Valor MN
+                    <input type="checkbox" name="" id="" />Valor GL
+                </div>
+                <br />
                     <label>Fecha de Inicio</label><input type='date'/><br/>
-                    <label>Fecha de Vigencia</label><input type='date'/><br/>
-                    <label>Firmador del contrato:</label>
-                    <input></input>
-                    <label htmlFor=""><strong>Ficha de cliente</strong></label>
-                    <label>Nombre:</label>
-                    <input></input><br />
-                    <label>Carnet de identidad:</label>
-                    <input></input><br />
+                    <label>Fecha de Vencimiento</label><input type='date'/><br/>
+                    <label>Observ:</label>
+                    <input type='text'></input>
             </section> 
             </div>
             

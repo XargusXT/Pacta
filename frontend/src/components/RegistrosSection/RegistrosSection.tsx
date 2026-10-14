@@ -28,7 +28,8 @@ interface ElementoLista {
 
 export default function Registros() {
     const [activeAgregarModal,setActiveAgregarModal]=useState<boolean>(false)
-
+    const [proveedores,setProveedores]=useState<boolean>(true)
+    const [clientes,setClientes]=useState<boolean>(false)
     const [listaInformacion] = useState<ElementoLista[]>([
         {
             id: 1,
@@ -220,6 +221,28 @@ export default function Registros() {
 
                     </button>
 
+                </div>
+
+                <div className='Tabs'>
+                    <h2>Denominaciones</h2>
+                    <div className='Tabsbuttons'>
+                        <button
+                        className={proveedores? `button-active`:``}
+                        onClick={()=>{
+                            setProveedores(true)
+                            setClientes(false)
+                        }}>
+                            <p>Proveedor</p>
+                        </button>
+                        <button
+                        className={clientes? `button-active`:``}
+                        onClick={()=>{
+                            setProveedores(false)
+                            setClientes(true)
+                        }}>
+                            <p>Cliente</p>
+                        </button>
+                    </div>
                 </div>
 
                 {/* =========================

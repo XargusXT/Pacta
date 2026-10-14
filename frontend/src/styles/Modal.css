@@ -55,6 +55,10 @@
     justify-content: center;
 }
 
+input ,select{
+    height: 18px;
+}
+
 @media (max-width:1000px) {
     .modal{
         margin: 5% 15%;
