@@ -32,9 +32,11 @@ app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
 // Importar rutas
 const authRoutes = require('./src/routes/authRoutes');
+const entityRoutes = require('./src/routes/entitysRoutes');
 
 // Registrar rutas
 app.use('/api/auth', authRoutes);
+app.use('/api/entitys', entityRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {

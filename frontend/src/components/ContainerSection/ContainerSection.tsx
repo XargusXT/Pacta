@@ -6,7 +6,7 @@ import BusinessIcon from '@mui/icons-material/Business';
 import EditIcon from '@mui/icons-material/Edit';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 
 interface ElementoLista {
     id: number;
@@ -21,6 +21,7 @@ interface ElementoDato {
 }
 
 export default function ContainerSection() {
+    const navigate=useNavigate()
     const [listaInformacion] = useState<ElementoLista[]>([
         {
             id: 1,
@@ -136,7 +137,10 @@ export default function ContainerSection() {
                             </div>
                         </div>
 
-                        <button className="positive-button">
+                        <button className="positive-button" onClick={(e)=>{
+                          e.preventDefault()
+                          navigate('/ModoSettings')  
+                        }}>
                             <EditIcon />
                             Editar
                         </button>

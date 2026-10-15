@@ -1,6 +1,7 @@
 import React from 'react'
 import '../../styles/Modal.css'
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
+import axios from 'axios'
 
 interface Prop{
     cerrar:Function
@@ -9,6 +10,12 @@ interface Prop{
 interface Empresa{
     id:number,
     nombre:string
+}
+
+interface ResponseEntidades{
+    success:boolean,
+    lista?:Empresa[],
+    error?:string
 }
 
 // tipo
@@ -31,14 +38,23 @@ interface Empresa{
 // ficha de cliente:carnet de identidad y nombre de la persona
 
 export default function ModalAgregarContrato({cerrar}:Prop) {
-    const lista_Empresas:Empresa[]=[
-        {id:1,nombre:'Alimatic'},
-        {id:2,nombre:'Universales PR'},
-        {id:3,nombre:'IPU Rafeal Ferro'},
-        {id:4,nombre:'Empresa provincial de Farmacias y Opticas'},
-        {id:5,nombre:'Estacion de Bomberos'},
-        {id:6,nombre:'Estacion de Trenes'},
-    ]
+    const [lista_Empresas,setlista_Empresa]=useState<Empresa[]>([])
+
+    useEffect(()=>{
+        const HandleEntitys=async ()=>{
+            try {
+            const response =await axios.get<ResponseEntidades>('/api/entitys')
+            const data=await response.data
+            if(data.success){
+                setlista_Empresa(data.lista)
+            }
+        } catch (error) {
+            alert(error)
+        }
+        }
+
+        HandleEntitys()
+    },[])
   return (
     <div className='fondo'>
         <div className='modal'>
@@ -58,13 +74,13 @@ export default function ModalAgregarContrato({cerrar}:Prop) {
                 <section>
                     <label>Denominacion:</label>
                     
-                    <select>
+                    <select className='select'>
                         <option value='cliente'>Cliente</option>
                         <option value='proveedor'>Proveedor</option>
                     </select>
                     <br />
                     <label>Entidad:</label>
-                    <select>
+                    <select className='select'>
                             {lista_Empresas.map((empresa)=>(
                                 <option
                                 key={empresa.id}
@@ -74,7 +90,7 @@ export default function ModalAgregarContrato({cerrar}:Prop) {
                     </select>
                     <br/>
                     <label>tipo de contrato:</label>
-                    <select name="" id="">
+                    <select className='select' name="" id="">
 
                     </select>
                     <br />

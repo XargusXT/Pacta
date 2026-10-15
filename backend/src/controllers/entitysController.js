@@ -1,20 +1,24 @@
 const pool = require('../config/db');
 
-const seccionesController = {
+const entitysController = {
     getAll: async (req, res) => {
         try {
-            const query = 'SELECT id_seccion, nombre_seccion FROM public.secciones ORDER BY id_seccion';
+            const query = 'SELECT id, nombre FROM public.entidades';
             const result = await pool.query(query);
             
-            res.json(result.rows);
+            res.status(200).json({
+                success:true,
+                lista:result.rows
+            }
+            );
         } catch (error) {
             console.error('Error obteniendo secciones:', error);
-            res.status(500).json({ 
+            res.status(500).json({
+                success:false,
                 error: 'Error al obtener las secciones',
-                details: error.message 
             });
         }
     }
 };
 
-module.exports = seccionesController;
+module.exports = entitysController;

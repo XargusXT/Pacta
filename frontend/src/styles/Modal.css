@@ -59,6 +59,11 @@ input ,select{
     height: 18px;
 }
 
+.select{
+    width: 250px;
+
+}
+
 @media (max-width:1000px) {
     .modal{
         margin: 5% 15%;
