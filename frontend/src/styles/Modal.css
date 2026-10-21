@@ -10,7 +10,7 @@
     display: grid;
     justify-content: center;
     background: var(--background);
-    margin: 5% 20%;
+    margin: 1% 20%;
     padding: 20px;
     border-radius: 10px;
     box-shadow: var(--subtitle-shadow);
@@ -27,16 +27,15 @@
     height: 40px;
     margin-top:5%;
     padding: 5px;
-    color: var(--accent);
-    border: 2px solid var(--accent);
+    color: var(--primary-color);
+    border: 2px solid rgb(208, 206, 206);
     border-radius: 8px;
     transition: all 0.5s ease;
 
 }
 
 .boton-cerrar:hover{
-    background: rgb(196, 194, 194);
-    transform: trans;
+    background: var(--background);
 }
 
 .flex-components{
@@ -56,12 +55,50 @@
 }
 
 input ,select{
-    height: 18px;
+    height: 45px;
+    box-sizing: border-box;
+
+    padding: 0 14px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: var(--background);
+
+    color: var(--primary-color);
+
+    font-size: 13px;
+
+    transition: all 0.3s ease;
 }
 
 .select{
     width: 250px;
 
+}
+
+.select::placeholder {
+    color: #aaa;
+}
+
+.select:hover {
+    border-color: #bbb;
+}
+
+.select:focus {
+    border-color: var(--primary-color);
+
+    box-shadow:
+        0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+
+
+.radio-dato{
+    margin: 1px 5px;
 }
 
 @media (max-width:1000px) {
