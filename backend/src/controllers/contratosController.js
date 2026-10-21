@@ -22,7 +22,7 @@ const contratosController = {
         try{
             const { denominacion, entidad, tipo, nca,ncontrato,valormn,valorgl,finicio,fvencimiento,observ } = req.body;
                 // Validación
-                if (!denominacion || !entidad || !tipo || !nca || !ncontrato || !valormn || !valorgl || !finicio || !fvencimiento || !observ) {
+                if (!denominacion || !entidad || !tipo || !nca || !ncontrato || (!valormn && !valorgl) || !finicio || !fvencimiento || !observ) {
                     return res.status(400).json({
                         success:false,
                         error: 'Todos los campos son obligatorios'

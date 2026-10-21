@@ -38,8 +38,8 @@ interface Contrato{
     ncontrato:string,
     valormn:boolean,
     valorgl:boolean,
-    finicio:Date,
-    fvencimiento:Date,
+    finicio:string,
+    fvencimiento:string,
     observ:string
 }
 
@@ -54,14 +54,14 @@ export default function ModalAgregarContrato({cerrar}:Prop) {
     const [lista_tipos_contratos,setlista_tipos_contratos]=useState<TipoContrato[]>([])
 
     const [denominacion,setDenominacion]=useState<String>('Cliente');
-    const [entidad,setEntidad]=useState<Number>(0);
+    const [entidad,setEntidad]=useState<Number>(1);
     const [tipo,setTipo]=useState<Number>(0);
     const [nca,setNca]=useState<String>('');
     const [ncontrato,setNcontrato]=useState<String>('');
     const [valormn,setValormn]=useState<Boolean>(false);
     const [valorgl,setValorgl]=useState<Boolean>(false);
-    const [finicio,setFinicio]=useState<Date>();
-    const [fvencimiento,setFvencimiento]=useState<Date>();
+    const [finicio,setFinicio]=useState<String>('');
+    const [fvencimiento,setFvencimiento]=useState<String>('');
     const [observ,setObserv]=useState<String>();
 
     useEffect(()=>{
@@ -112,7 +112,7 @@ export default function ModalAgregarContrato({cerrar}:Prop) {
                 <section>
                     <label>Denominacion:</label>
                     
-                    <select className="input-dato" onChange={(e)=>{
+                    <select onChange={(e)=>{
                         console.log(e.target.value)
                         setDenominacion(e.target.value)
                     }} className='select'>
@@ -122,7 +122,7 @@ export default function ModalAgregarContrato({cerrar}:Prop) {
                     <br />
                     <label>Entidad:</label>
                     <select onChange={(e)=>{
-                        setEntidad(e.target.value)
+                        setEntidad(parseInt(e.target.value))
                     }} className='select'>
                             {lista_Empresas.map((empresa)=>(
                                 <option
@@ -134,7 +134,7 @@ export default function ModalAgregarContrato({cerrar}:Prop) {
                     <br/>
                     <label>tipo de contrato:</label>
                     <select className='select' onChange={(e)=>{
-                        setTipo(e.target.value)
+                        setTipo(parseInt(e.target.value))
                     }} name="" id="">
                         {lista_tipos_contratos.map((tipo)=>(
                                 <option
@@ -215,7 +215,7 @@ export default function ModalAgregarContrato({cerrar}:Prop) {
 
 
                 }catch(error){
-
+                    console.log(error)
                 }
             }}>Crear Contrato</button>
             <button className='Link-modo' onClick={()=>{
